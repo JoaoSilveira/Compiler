@@ -39,10 +39,10 @@ namespace Compilador
         private bool State1()
         {
             var c = GetChar;
-            Push(c);
 
-            if (IsInitOfId(c)) // leu um caracter
+            if (IsInitOfId(c))
             {
+                Push(c);
                 State = State2;
 
                 return false;
@@ -50,6 +50,7 @@ namespace Compilador
 
             if (c == '-')
             {
+                Push(c);
                 State = State3;
 
                 return false;
@@ -57,6 +58,7 @@ namespace Compilador
 
             if (char.IsDigit(c))
             {
+                Push(c);
                 State = State4;
 
                 return false;
@@ -64,12 +66,41 @@ namespace Compilador
 
             if (c == '.')
             {
+                Push(c);
                 State = State5;
 
                 return false;
             }
 
-            throw new Exception("Caracter não reconhecido");
+            if (c == '"')
+            {
+                Push(c);
+                State = State7;
+
+                return false;
+            }
+
+            if (c == '/')
+            {
+                Push(c);
+                State = State8;
+
+                return false;
+            }
+
+            if (IsCompositeOp(c))
+            {
+                Push(c);
+                State = State10;
+
+                return false;
+            }
+
+            if (!IsSingleOp(c))
+                throw new Exception("Caracter não reconhecido");
+
+            Push(c);
+            return true;
         }
 
         private bool State2()
@@ -145,6 +176,57 @@ namespace Compilador
             return false;
         }
 
+        private bool State7()
+        {
+            var c = GetChar;
+
+            switch (c)
+            {
+                case '"':
+                    return true;
+                case '\n':
+                    throw new Exception("Não pode ter quebra de linha dentro de uma string");
+                default:
+                    Push(c);
+                    return false;
+            }
+        }
+
+        private bool State8()
+        {
+            var c = GetChar;
+
+            if (c != '/')
+                return true;
+
+            Push(c);
+
+            State = State9;
+            return false;
+        }
+
+        private bool State9()
+        {
+            var c = GetChar;
+
+            if (c == '\n')
+                return true;
+
+            Push(c);
+            return false;
+        }
+
+        private bool State10()
+        {
+            var c = GetChar;
+
+            if (c != '=')
+                return true;
+
+            Push(c);
+            return false;
+        }
+
         private void Next()
         {
             Reader.BaseStream.Position += 1;
@@ -177,6 +259,17 @@ namespace Compilador
         public static bool IsBodyOfId(char c)
         {
             return char.IsLetterOrDigit(c) || c == '_';
+        }
+
+        public static bool IsCompositeOp(char c)
+        {
+            return c == '=' || c == '<' || c == '>' || c == '!';
+        }
+
+        public static bool IsSingleOp(char c)
+        {
+            return c == '+' || c == '*' || c == '%' || c == '&' || c == '|' || c == '#'
+                   || c == '!' || c == '{' || c == '}' || c == '(' || c == ')' || c == ';';
         }
     }
 }
