@@ -229,8 +229,9 @@ namespace Compilador
 
             if (c == '\n')
             {
-                Back();
-                return true;
+                Clear();
+                State = State1;
+                return false;
             }
 
             Push(c);
@@ -266,9 +267,14 @@ namespace Compilador
             Builder.Append(c);
         }
 
+        private void Clear()
+        {
+            Builder.Clear();
+        }
+
         private Token GetToken()
         {
-            var tk = new Token(Builder.ToString());
+            var tk = Token.GetFrom(Builder.ToString());
             Builder.Clear();
 
             return tk;

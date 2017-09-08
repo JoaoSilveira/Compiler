@@ -1,40 +1,68 @@
 ﻿using System.CodeDom;
+using System.Linq;
 using System.Text.RegularExpressions;
+using Compiler;
 
-namespace Compilador
+namespace Compiler
 {
     public class Token
     {
         public string Text { get; }
+        public TokenType Type { get; }
 
-        public Token(string text)
+        protected Token(string text, TokenType type)
         {
             Text = text;
+            Type = type;
         }
 
         public static Token GetFrom(string content)
         {
             if (Regex.IsMatch(content, "^[_a-zA-Z][_a-zA-Z0-9]*$"))
             {
-                // é um ID - tem que verificar se é palavra reservada
+                return ReservedToken.IsReservedWord(content)
+                    ? new ReservedToken(content)
+                    : new Token(content, TokenType.Identifier);
             }
 
-            if (Regex.IsMatch(content, @"^-?(\d*\.\d+|\d+)$"))
+            if (Regex.IsMatch(content, @"^-?(?:\d*\.\d+|\d+)$"))
             {
-                // é um número - tem que ver se é decimal ou não
+                return new ImmediateToken(content);
             }
 
-            if (Regex.IsMatch(content, "^\"[^\n\"]*\"$"))
+            if (Regex.IsMatch(content, @"^(?:\+|\*|%|-|/)$"))
             {
-                // é uma string
+                return new ArithmeticToken(content);
             }
 
-            if (Regex.IsMatch(content, @"^(\+|\*|%|&|\||\#|\{|\}|\(|\)|;|==|<=|>=|!=|=|<|>|!|/|-)$"))
+            if (Regex.IsMatch(content, @"^(?:\{|\}|\(|\)|;)$"))
+            {
+                return new ControlToken(content);
+            }
+
+            if (Regex.IsMatch(content, @"^(?:&|\||\#|!)$"))
+            {
+                return new LogicalToken(content);
+            }
+
+            if (Regex.IsMatch(content, @"^(?:==|<=|>=|!=|<|>)$"))
             {
                 // é um operador ou caracter de controle tem que verificar
+                return new RelationalToken(content);
             }
 
-            return null;
+            //if (Regex.IsMatch(content, @"^""[^\n]*(?<=[^\\])""$"))
+            //{
+            //    // é uma string
+            //    return ;
+            //}
+
+            return Regex.IsMatch(content, "^=$") ? new Token(content, TokenType.Assignment) : new Token(content, TokenType.Text);
+        }
+
+        public override string ToString()
+        {
+            return $"<{Type} - '{Text}'>";
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Compiler
 
                 foreach (var token in lex.GetTokens())
                 {
-                    Console.WriteLine(token.Text);
+                    Console.WriteLine(token);
                 }
             }
         }

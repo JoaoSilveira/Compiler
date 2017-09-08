@@ -5,7 +5,7 @@ namespace Compiler
 {
     public class CustomStream : IDisposable
     {
-        private StreamReader _stream;
+        private readonly StreamReader _stream;
         private int _lastChar;
         private bool _isBack;
 
