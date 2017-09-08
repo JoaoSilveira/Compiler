@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Compiler;
 
 namespace Compilador
 {
     class LexicalAnalyzer
     {
-        private StreamReader Reader { get; }
+        private CustomStream Reader { get; }
 
         private StringBuilder Builder { get; }
 
@@ -18,7 +19,7 @@ namespace Compilador
 
         private Func<bool> State { get; set; }
 
-        public LexicalAnalyzer(StreamReader reader)
+        public LexicalAnalyzer(CustomStream reader)
         {
             Reader = reader;
             Builder = new StringBuilder();
@@ -30,9 +31,17 @@ namespace Compilador
             while (!Reader.EndOfStream)
             {
                 if (State())
+                {
                     yield return GetToken();
+                    State = State1;
+                }
 
                 Next();
+            }
+
+            if (Builder.Length > 0)
+            {
+                yield return GetToken();
             }
         }
 
@@ -48,14 +57,6 @@ namespace Compilador
                 return false;
             }
 
-            if (c == '-')
-            {
-                Push(c);
-                State = State3;
-
-                return false;
-            }
-
             if (char.IsDigit(c))
             {
                 Push(c);
@@ -64,28 +65,27 @@ namespace Compilador
                 return false;
             }
 
-            if (c == '.')
+            switch (c)
             {
-                Push(c);
-                State = State5;
+                case '-':
+                    Push(c);
+                    State = State3;
 
-                return false;
-            }
+                    return false;
+                case '.':
+                    Push(c);
+                    State = State5;
 
-            if (c == '"')
-            {
-                Push(c);
-                State = State7;
+                    return false;
+                case '"':
+                    State = State7;
 
-                return false;
-            }
+                    return false;
+                case '/':
+                    Push(c);
+                    State = State8;
 
-            if (c == '/')
-            {
-                Push(c);
-                State = State8;
-
-                return false;
+                    return false;
             }
 
             if (IsCompositeOp(c))
@@ -93,6 +93,11 @@ namespace Compilador
                 Push(c);
                 State = State10;
 
+                return false;
+            }
+
+            if (IsWhiteSpace(c))
+            {
                 return false;
             }
 
@@ -109,6 +114,7 @@ namespace Compilador
 
             if (!IsBodyOfId(c))
             {
+                Back();
                 return true;
             }
 
@@ -128,7 +134,10 @@ namespace Compilador
             }
 
             if (c != '.')
+            {
+                Back();
                 return true;
+            }
 
             Push(c);
             State = State5;
@@ -146,7 +155,10 @@ namespace Compilador
             }
 
             if (c != '.')
+            {
+                Back();
                 return true;
+            }
 
             Push(c);
             State = State5;
@@ -170,7 +182,10 @@ namespace Compilador
             var c = GetChar;
 
             if (!char.IsNumber(c))
+            {
+                Back();
                 return true;
+            }
 
             Push(c);
             return false;
@@ -197,7 +212,10 @@ namespace Compilador
             var c = GetChar;
 
             if (c != '/')
+            {
+                Back();
                 return true;
+            }
 
             Push(c);
 
@@ -210,7 +228,10 @@ namespace Compilador
             var c = GetChar;
 
             if (c == '\n')
+            {
+                Back();
                 return true;
+            }
 
             Push(c);
             return false;
@@ -221,7 +242,10 @@ namespace Compilador
             var c = GetChar;
 
             if (c != '=')
+            {
+                Back();
                 return true;
+            }
 
             Push(c);
             return false;
@@ -229,12 +253,12 @@ namespace Compilador
 
         private void Next()
         {
-            Reader.BaseStream.Position += 1;
+            Reader.Next();
         }
 
         private void Back()
         {
-            Reader.BaseStream.Position -= 1;
+            Reader.Back();
         }
 
         private void Push(char c)
@@ -246,7 +270,6 @@ namespace Compilador
         {
             var tk = new Token(Builder.ToString());
             Builder.Clear();
-            Back();
 
             return tk;
         }
@@ -270,6 +293,11 @@ namespace Compilador
         {
             return c == '+' || c == '*' || c == '%' || c == '&' || c == '|' || c == '#'
                    || c == '!' || c == '{' || c == '}' || c == '(' || c == ')' || c == ';';
+        }
+
+        public static bool IsWhiteSpace(char c)
+        {
+            return c == ' ' || c == '\t' || c == '\n' || c == '\r';
         }
     }
 }
