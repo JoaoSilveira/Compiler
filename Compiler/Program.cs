@@ -12,20 +12,27 @@ namespace Compiler
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)
-                throw new Exception("Deve ser passado pelo menos um parametro");
-
-            if (!File.Exists(args[0]))
-                throw new Exception("Arquivo inexistente");
-
-            using (var file = new CustomStream(new StreamReader(File.OpenRead(args[0]))))
+            try
             {
-                var lex = new LexicalAnalyzer(file);
+                if (args.Length == 0)
+                    throw new Exception("File path should be provided as command line argument");
 
-                foreach (var token in lex.GetTokens())
+                if (!File.Exists(args[0]))
+                    throw new Exception("Inexistent file");
+
+                using (var file = new CustomStream(new StreamReader(File.OpenRead(args[0]))))
                 {
-                    Console.WriteLine(token);
+                    var lex = new LexicalAnalyzer(file);
+
+                    foreach (var token in lex.GetTokens())
+                    {
+                        Console.WriteLine(token);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
     }

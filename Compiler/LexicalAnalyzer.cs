@@ -66,12 +66,12 @@ namespace Compilador
             }
 
             switch (c)
-            {
-                case '-':
-                    Push(c);
-                    State = State3;
+            { // descomentar se o valor do número puder ser negativo
+                //case '-':
+                //    Push(c);
+                //    State = State3;
 
-                    return false;
+                //    return false;
                 case '.':
                     Push(c);
                     State = State5;
@@ -102,7 +102,7 @@ namespace Compilador
             }
 
             if (!IsSingleOp(c))
-                throw new Exception("Caracter não reconhecido");
+                throw new Exception($"Unknown character '{c}'. Line {Reader.Line}: Column {Reader.Column}");
 
             Push(c);
             return true;
@@ -122,27 +122,28 @@ namespace Compilador
             return false;
         }
 
-        private bool State3()
-        {
-            var c = GetChar;
+        // descomentar se o valor do número puder ser negativo
+        //private bool State3()
+        //{
+        //    var c = GetChar;
 
-            if (char.IsNumber(c))
-            {
-                Push(c);
-                State = State4;
-                return false;
-            }
+        //    if (char.IsNumber(c))
+        //    {
+        //        Push(c);
+        //        State = State4;
+        //        return false;
+        //    }
 
-            if (c != '.')
-            {
-                Back();
-                return true;
-            }
+        //    if (c != '.')
+        //    {
+        //        Back();
+        //        return true;
+        //    }
 
-            Push(c);
-            State = State5;
-            return false;
-        }
+        //    Push(c);
+        //    State = State5;
+        //    return false;
+        //}
 
         private bool State4()
         {
@@ -170,7 +171,7 @@ namespace Compilador
             var c = GetChar;
 
             if (!char.IsDigit(c))
-                throw new Exception("Espera-se pelo menos um dígito após o ponto");
+                throw new Exception($"Expected a digit after dot. Line {Reader.Line}: Column {Reader.Column}");
 
             Push(c);
             State = State6;
@@ -200,7 +201,7 @@ namespace Compilador
                 case '"':
                     return true;
                 case '\n':
-                    throw new Exception("Não pode ter quebra de linha dentro de uma string");
+                    throw new Exception($"Expected end of string before new line. Line {Reader.Line}: Column {Reader.Column}");
                 default:
                     Push(c);
                     return false;
@@ -297,8 +298,8 @@ namespace Compilador
 
         public static bool IsSingleOp(char c)
         {
-            return c == '+' || c == '*' || c == '%' || c == '&' || c == '|' || c == '#'
-                   || c == '!' || c == '{' || c == '}' || c == '(' || c == ')' || c == ';';
+            return c == '+' || c == '*' || c == '%' || c == '&' || c == '|' || c == '#' // tirar c == '-' se o valor do número puder ser negativo
+                   || c == '!' || c == '{' || c == '}' || c == '(' || c == ')' || c == ';' || c == '-';
         }
 
         public static bool IsWhiteSpace(char c)
