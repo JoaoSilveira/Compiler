@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Compiler;
 
-namespace Compilador
+namespace Compiler
 {
     class LexicalAnalyzer
     {
@@ -60,30 +55,25 @@ namespace Compilador
             if (char.IsDigit(c))
             {
                 Push(c);
-                State = State4;
+                State = State3;
 
                 return false;
             }
 
             switch (c)
-            { // descomentar se o valor do número puder ser negativo
-                //case '-':
-                //    Push(c);
-                //    State = State3;
-
-                //    return false;
+            {
                 case '.':
                     Push(c);
-                    State = State5;
+                    State = State4;
 
                     return false;
                 case '"':
-                    State = State7;
+                    State = State6;
 
                     return false;
                 case '/':
                     Push(c);
-                    State = State8;
+                    State = State7;
 
                     return false;
             }
@@ -91,7 +81,7 @@ namespace Compilador
             if (IsCompositeOp(c))
             {
                 Push(c);
-                State = State10;
+                State = State9;
 
                 return false;
             }
@@ -122,30 +112,7 @@ namespace Compilador
             return false;
         }
 
-        // descomentar se o valor do número puder ser negativo
-        //private bool State3()
-        //{
-        //    var c = GetChar;
-
-        //    if (char.IsNumber(c))
-        //    {
-        //        Push(c);
-        //        State = State4;
-        //        return false;
-        //    }
-
-        //    if (c != '.')
-        //    {
-        //        Back();
-        //        return true;
-        //    }
-
-        //    Push(c);
-        //    State = State5;
-        //    return false;
-        //}
-
-        private bool State4()
+        private bool State3()
         {
             var c = GetChar;
 
@@ -162,11 +129,11 @@ namespace Compilador
             }
 
             Push(c);
-            State = State5;
+            State = State4;
             return false;
         }
 
-        private bool State5()
+        private bool State4()
         {
             var c = GetChar;
 
@@ -174,11 +141,11 @@ namespace Compilador
                 throw new Exception($"Expected a digit after dot. Line {Reader.Line}: Column {Reader.Column}");
 
             Push(c);
-            State = State6;
+            State = State5;
             return false;
         }
 
-        private bool State6()
+        private bool State5()
         {
             var c = GetChar;
 
@@ -192,7 +159,7 @@ namespace Compilador
             return false;
         }
 
-        private bool State7()
+        private bool State6()
         {
             var c = GetChar;
 
@@ -208,7 +175,7 @@ namespace Compilador
             }
         }
 
-        private bool State8()
+        private bool State7()
         {
             var c = GetChar;
 
@@ -220,11 +187,11 @@ namespace Compilador
 
             Push(c);
 
-            State = State9;
+            State = State8;
             return false;
         }
 
-        private bool State9()
+        private bool State8()
         {
             var c = GetChar;
 
@@ -239,18 +206,20 @@ namespace Compilador
             return false;
         }
 
-        private bool State10()
+        private bool State9()
         {
             var c = GetChar;
 
-            if (c != '=')
+            if (c == '=')
             {
-                Back();
+                Push(c);
+
                 return true;
             }
 
-            Push(c);
-            return false;
+            Back();
+
+            return true;
         }
 
         private void Next()
@@ -298,7 +267,7 @@ namespace Compilador
 
         public static bool IsSingleOp(char c)
         {
-            return c == '+' || c == '*' || c == '%' || c == '&' || c == '|' || c == '#' // tirar c == '-' se o valor do número puder ser negativo
+            return c == '+' || c == '*' || c == '%' || c == '&' || c == '|' || c == '#'
                    || c == '!' || c == '{' || c == '}' || c == '(' || c == ')' || c == ';' || c == '-';
         }
 

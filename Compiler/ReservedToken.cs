@@ -25,7 +25,6 @@ namespace Compiler
             {"th8", ReservedType.Th8},
             {"kk4", ReservedType.Kk4},
             {"kk8", ReservedType.Kk8}
-
         };
 
         public ReservedType ReservedType { get; }

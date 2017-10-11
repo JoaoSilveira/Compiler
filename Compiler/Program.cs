@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Compilador;
 
 namespace Compiler
 {
@@ -34,6 +33,8 @@ namespace Compiler
             {
                 Console.WriteLine(e.Message);
             }
+
+            Console.Read();
         }
     }
 }

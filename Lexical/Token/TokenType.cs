@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compiler
+namespace Lexical.Token
 {
     [Flags]
     public enum TokenType : long
