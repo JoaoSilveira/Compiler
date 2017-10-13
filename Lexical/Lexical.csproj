@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Token\IdentifierToken.cs" />
+    <Compile Include="Token\ImmediateToken.cs" />
     <Compile Include="Token\Token.cs" />
     <Compile Include="Token\TokenStream.cs" />
     <Compile Include="Token\TokenType.cs" />

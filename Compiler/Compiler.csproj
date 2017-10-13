@@ -42,27 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArithmeticToken.cs" />
-    <Compile Include="ArithmeticType.cs" />
-    <Compile Include="ControlToken.cs" />
-    <Compile Include="ControlType.cs" />
-    <Compile Include="CustomStream.cs" />
-    <Compile Include="ImmediateToken.cs" />
-    <Compile Include="ImmediateType.cs" />
-    <Compile Include="LexicalAnalyzer.cs" />
-    <Compile Include="LogicalToken.cs" />
-    <Compile Include="LogicalType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelationalToken.cs" />
-    <Compile Include="RelationalType.cs" />
-    <Compile Include="ReservedToken.cs" />
-    <Compile Include="ReservedType.cs" />
-    <Compile Include="Token.cs" />
-    <Compile Include="TokenType.cs" />
+    <Compile Include="Token\IdentifierToken.cs" />
+    <Compile Include="Token\ImmediateToken.cs" />
+    <Compile Include="Token\Token.cs" />
+    <Compile Include="Token\TokenStream.cs" />
+    <Compile Include="Token\TokenType.cs" />
+    <Compile Include="Token\TokenUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Syntax\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

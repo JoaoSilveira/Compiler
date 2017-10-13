@@ -4,10 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Compiler.Token;
 
 namespace Compiler
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
@@ -19,13 +20,11 @@ namespace Compiler
                 if (!File.Exists(args[0]))
                     throw new Exception("Inexistent file");
 
-                using (var file = new CustomStream(new StreamReader(File.OpenRead(args[0]))))
+                using (var stream = new TokenStream(args[0]))
                 {
-                    var lex = new LexicalAnalyzer(file);
-
-                    foreach (var token in lex.GetTokens())
+                    while (!stream.EndOfStream)
                     {
-                        Console.WriteLine(token);
+                        Console.WriteLine(stream.Read());
                     }
                 }
             }

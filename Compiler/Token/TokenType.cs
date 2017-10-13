@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compiler
+namespace Compiler.Token
 {
     [Flags]
     public enum TokenType : long
