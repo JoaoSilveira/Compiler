@@ -8,9 +8,11 @@ namespace Compiler.Analyser
 {
     public class AcceptAction : IAction
     {
-        public void Resolve(Stack<QueueObject> actions, Stack<int> states)
+        public StackObject Data => throw new Exception("AcceptionAction has no data");
+
+        int IAction.Resolve(Stack<StackObject> actions, Stack<int> states)
         {
-            
+            return 0;
         }
     }
 }

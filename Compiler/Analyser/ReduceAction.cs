@@ -6,17 +6,19 @@ namespace Compiler.Analyser
 {
     public class ReduceAction : IAction
     {
-        public QueueObject[] ReduceStack { get; }
+        public StackObject[] ReduceStack { get; }
 
-        public QueueObject NonTerminal { get; }
+        public StackObject NonTerminal { get; }
 
-        public ReduceAction(QueueObject nonTerminal, params QueueObject[] reduceStack)
+        public StackObject Data => NonTerminal;
+
+        public ReduceAction(StackObject nonTerminal, params StackObject[] reduceStack)
         {
             NonTerminal = nonTerminal;
             ReduceStack = reduceStack;
         }
 
-        public void Resolve(Stack<QueueObject> actions, Stack<int> states)
+        public int Resolve(Stack<StackObject> actions, Stack<int> states)
         {
             foreach (var queueObject in ReduceStack.Reverse())
             {
@@ -29,6 +31,8 @@ namespace Compiler.Analyser
                 states.Pop();
             }
             actions.Push(NonTerminal);
+
+            return 1;
         }
     }
 }

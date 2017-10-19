@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Compiler.Analyser
@@ -6,14 +7,18 @@ namespace Compiler.Analyser
     {
         public int State { get; }
 
+        public StackObject Data => throw new Exception("Transition has no data");
+
         public TransitionAction(int state)
         {
             State = state;
         }
 
-        public void Resolve(Stack<QueueObject> actions, Stack<int> states)
+        public int Resolve(Stack<StackObject> actions, Stack<int> states)
         {
             states.Push(State);
+
+            return 0;
         }
     }
 }

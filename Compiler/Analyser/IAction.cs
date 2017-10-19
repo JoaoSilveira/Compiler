@@ -6,6 +6,7 @@ namespace Compiler.Analyser
 {
     public interface IAction
     {
-        void Resolve(Stack<QueueObject> actions, Stack<int> states);
+        StackObject Data { get; }
+        int Resolve(Stack<StackObject> actions, Stack<int> states);
     }
 }

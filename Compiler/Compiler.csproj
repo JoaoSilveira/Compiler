@@ -43,11 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Analyser\AcceptAction.cs" />
+    <Compile Include="Analyser\Analyser.cs" />
     <Compile Include="Analyser\IAction.cs" />
-    <Compile Include="Analyser\ActionFlags.cs" />
     <Compile Include="Analyser\NonTerminalType.cs" />
-    <Compile Include="Analyser\QueueAction.cs" />
-    <Compile Include="Analyser\QueueObject.cs" />
+    <Compile Include="Analyser\StackAction.cs" />
+    <Compile Include="Analyser\StackObject.cs" />
     <Compile Include="Analyser\ReduceAction.cs" />
     <Compile Include="Analyser\States.cs" />
     <Compile Include="Analyser\TransitionAction.cs" />

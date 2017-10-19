@@ -5,1606 +5,1605 @@ namespace Compiler.Analyser
 {
     public static class States
     {
-        public static readonly Dictionary<QueueObject, IAction>[] StateArray =
+        public static readonly Dictionary<StackObject, IAction>[] StateArray =
         {
             #region State 0
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Jaoooo, new QueueAction(QueueObject.Jaoooo, 2)},
-                {QueueObject.BeginNT, new TransitionAction(1) }
+                {StackObject.Jaoooo, new StackAction(StackObject.Jaoooo, 2)},
+                {StackObject.BeginNT, new TransitionAction(1) }
             },
 
             #endregion
 
             #region State 1
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.End,  new AcceptAction()}
+                {StackObject.End,  new AcceptAction()}
             },
 
             #endregion
 
             #region State 2
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.Honk, new QueueAction(QueueObject.Honk, 12) },
-                {QueueObject.Pedal, new QueueAction(QueueObject.Pedal, 13) },
-                {QueueObject.VarType, new QueueAction(QueueObject.VarType, 14) },
-                {QueueObject.Identifier, new QueueAction(QueueObject.Identifier, 20) },
-                {QueueObject.Cirno, new QueueAction(QueueObject.Cirno, 15) },
-                {QueueObject.Mokou, new QueueAction(QueueObject.Mokou, 16) },
-                {QueueObject.Cheeen, new QueueAction(QueueObject.Cheeen, 17) },
-                {QueueObject.Marisa, new QueueAction(QueueObject.Marisa, 18) },
-                {QueueObject.Stb, new QueueAction(QueueObject.Stb, 19) },
-                {QueueObject.CloseBracket, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.StatementNT, new TransitionAction(3) },
-                {QueueObject.StatementAuxNT, new TransitionAction(4) },
-                {QueueObject.DeclVariableNT, new TransitionAction(5) },
-                {QueueObject.CirnoNT, new TransitionAction(6) },
-                {QueueObject.MokouNT, new TransitionAction(7) },
-                {QueueObject.CheeenNT, new TransitionAction(8) },
-                {QueueObject.MarisaNT, new TransitionAction(9) },
-                {QueueObject.StbNT, new TransitionAction(10) },
-                {QueueObject.AttributionNT, new TransitionAction(11) }
+                {StackObject.Nani, new StackAction(StackObject.StatementNT) },
+                {StackObject.Honk, new StackAction(StackObject.Honk, 12) },
+                {StackObject.Pedal, new StackAction(StackObject.Pedal, 13) },
+                {StackObject.VarType, new StackAction(StackObject.VarType, 14) },
+                {StackObject.Identifier, new StackAction(StackObject.Identifier, 20) },
+                {StackObject.Cirno, new StackAction(StackObject.Cirno, 15) },
+                {StackObject.Mokou, new StackAction(StackObject.Mokou, 16) },
+                {StackObject.Cheeen, new StackAction(StackObject.Cheeen, 17) },
+                {StackObject.Marisa, new StackAction(StackObject.Marisa, 18) },
+                {StackObject.Stb, new StackAction(StackObject.Stb, 19) },
+                {StackObject.CloseBracket, new StackAction(StackObject.StatementNT) },
+                {StackObject.StatementNT, new TransitionAction(3) },
+                {StackObject.StatementAuxNT, new TransitionAction(4) },
+                {StackObject.DeclVariableNT, new TransitionAction(5) },
+                {StackObject.CirnoNT, new TransitionAction(6) },
+                {StackObject.MokouNT, new TransitionAction(7) },
+                {StackObject.CheeenNT, new TransitionAction(8) },
+                {StackObject.MarisaNT, new TransitionAction(9) },
+                {StackObject.StbNT, new TransitionAction(10) },
+                {StackObject.AttributionNT, new TransitionAction(11) }
             }, 
 
             #endregion
 
             #region State 3
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new QueueAction(QueueObject.Nani, 21)}
+                {StackObject.Nani,  new StackAction(StackObject.Nani, 21)}
             },
 
             #endregion
 
             #region State 4
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.Honk, new QueueAction(QueueObject.Honk, 12) },
-                {QueueObject.Pedal, new QueueAction(QueueObject.Pedal, 13) },
-                {QueueObject.VarType, new QueueAction(QueueObject.VarType, 14) },
-                {QueueObject.Identifier, new QueueAction(QueueObject.Identifier, 20) },
-                {QueueObject.Cirno, new QueueAction(QueueObject.Cirno, 15) },
-                {QueueObject.Mokou, new QueueAction(QueueObject.Mokou, 16) },
-                {QueueObject.Cheeen, new QueueAction(QueueObject.Cheeen, 17) },
-                {QueueObject.Marisa, new QueueAction(QueueObject.Marisa, 18) },
-                {QueueObject.Stb, new QueueAction(QueueObject.Stb, 19) },
-                {QueueObject.CloseBracket, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.StatementNT, new TransitionAction(22) },
-                {QueueObject.StatementAuxNT, new TransitionAction(4) },
-                {QueueObject.DeclVariableNT, new TransitionAction(5) },
-                {QueueObject.CirnoNT, new TransitionAction(6) },
-                {QueueObject.MokouNT, new TransitionAction(7) },
-                {QueueObject.CheeenNT, new TransitionAction(8) },
-                {QueueObject.MarisaNT, new TransitionAction(9) },
-                {QueueObject.StbNT, new TransitionAction(10) },
-                {QueueObject.AttributionNT, new TransitionAction(11) }
+                {StackObject.Nani, new StackAction(StackObject.StatementNT) },
+                {StackObject.Honk, new StackAction(StackObject.Honk, 12) },
+                {StackObject.Pedal, new StackAction(StackObject.Pedal, 13) },
+                {StackObject.VarType, new StackAction(StackObject.VarType, 14) },
+                {StackObject.Identifier, new StackAction(StackObject.Identifier, 20) },
+                {StackObject.Cirno, new StackAction(StackObject.Cirno, 15) },
+                {StackObject.Mokou, new StackAction(StackObject.Mokou, 16) },
+                {StackObject.Cheeen, new StackAction(StackObject.Cheeen, 17) },
+                {StackObject.Marisa, new StackAction(StackObject.Marisa, 18) },
+                {StackObject.Stb, new StackAction(StackObject.Stb, 19) },
+                {StackObject.CloseBracket, new StackAction(StackObject.StatementNT) },
+                {StackObject.StatementNT, new TransitionAction(22) },
+                {StackObject.StatementAuxNT, new TransitionAction(4) },
+                {StackObject.DeclVariableNT, new TransitionAction(5) },
+                {StackObject.CirnoNT, new TransitionAction(6) },
+                {StackObject.MokouNT, new TransitionAction(7) },
+                {StackObject.CheeenNT, new TransitionAction(8) },
+                {StackObject.MarisaNT, new TransitionAction(9) },
+                {StackObject.StbNT, new TransitionAction(10) },
+                {StackObject.AttributionNT, new TransitionAction(11) }
             }, 
 
             #endregion
 
             #region State 5
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.DeclVariableNT)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.DeclVariableNT)},
             },
 
             #endregion
 
             #region State 6
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CirnoNT)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CirnoNT)},
             },
 
             #endregion
 
             #region State 7
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MokouNT)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MokouNT)},
             },
 
             #endregion
 
             #region State 8
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.CheeenNT)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.CheeenNT)},
             },
 
             #endregion
 
             #region State 9
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.MarisaNT)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.MarisaNT)},
             },
 
             #endregion
 
             #region State 10
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.StbNT)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.StbNT)},
             },
 
             #endregion
 
             #region State 11
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 23)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 23)}
             },
 
             #endregion
 
             #region State 12
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 24)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 24)}
             },
 
             #endregion
 
             #region State 13
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 25)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 25)}
             },
 
             #endregion
 
             #region State 14
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 26)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 26)}
             },
 
             #endregion
 
             #region State 15
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 27)}
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 27)}
             },
 
             #endregion
 
             #region State 16
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 28)}
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 28)}
             },
 
             #endregion
 
             #region State 17
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 29)}
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 29)}
             },
 
             #endregion
 
             #region State 18
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 30)}
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 30)}
             },
 
             #endregion
 
             #region State 19
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 31)}
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 31)}
             },
 
             #endregion
 
             #region State 20
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Assignment,  new QueueAction(QueueObject.Assignment, 32)}
+                {StackObject.Assignment,  new StackAction(StackObject.Assignment, 32)}
             },
 
             #endregion
 
             #region State 21
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.End,  new ReduceAction(QueueObject.BeginNT, QueueObject.Jaoooo, QueueObject.StatementNT, QueueObject.Nani)}
+                {StackObject.End,  new ReduceAction(StackObject.BeginNT, StackObject.Jaoooo, StackObject.StatementNT, StackObject.Nani)}
             },
 
             #endregion
 
             #region State 22
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementNT, QueueObject.StatementAuxNT, QueueObject.StatementNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementNT, QueueObject.StatementAuxNT, QueueObject.StatementNT)}
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementNT, StackObject.StatementAuxNT, StackObject.StatementNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementNT, StackObject.StatementAuxNT, StackObject.StatementNT)}
             },
 
             #endregion
 
             #region State 23
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.AttributionNT, QueueObject.Semicolon)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.AttributionNT, StackObject.Semicolon)},
             },
 
             #endregion
 
             #region State 24
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Honk, QueueObject.Semicolon)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Honk, StackObject.Semicolon)},
             },
 
             #endregion
 
             #region State 25
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StatementAuxNT, QueueObject.Pedal, QueueObject.Semicolon)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StatementAuxNT, StackObject.Pedal, StackObject.Semicolon)},
             },
 
             #endregion
 
             #region State 26
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.DeclVariableAuxNT)},
-                {QueueObject.Assignment,  new QueueAction(QueueObject.Assignment, 34)},
-                {QueueObject.DeclVariableAuxNT,  new TransitionAction(33)}
+                {StackObject.Semicolon,  new StackAction(StackObject.DeclVariableAuxNT)},
+                {StackObject.Assignment,  new StackAction(StackObject.Assignment, 34)},
+                {StackObject.DeclVariableAuxNT,  new TransitionAction(33)}
             },
 
             #endregion
 
             #region State 27
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(35)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(35)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)}
             },
 
             #endregion
 
             #region State 28
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(44)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(44)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)}
             },
 
             #endregion
 
             #region State 29
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.CheeenAttributionNT)},
-                {QueueObject.VarType,  new QueueAction(QueueObject.VarType, 47)},
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 20)},
-                {QueueObject.AttributionNT,  new TransitionAction(46)},
-                {QueueObject.CheeenAttributionNT,  new TransitionAction(45)}
+                {StackObject.Semicolon,  new StackAction(StackObject.CheeenAttributionNT)},
+                {StackObject.VarType,  new StackAction(StackObject.VarType, 47)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 20)},
+                {StackObject.AttributionNT,  new TransitionAction(46)},
+                {StackObject.CheeenAttributionNT,  new TransitionAction(45)}
             },
 
             #endregion
 
             #region State 30
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Text,  new QueueAction(QueueObject.Text, 48)}
+                {StackObject.Text,  new StackAction(StackObject.Text, 48)}
             },
 
             #endregion
 
             #region State 31
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Text,  new QueueAction(QueueObject.Text, 49)}
+                {StackObject.Text,  new StackAction(StackObject.Text, 49)}
             },
 
             #endregion
 
             #region State 32
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(50)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(50)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 33
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 54)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 54)}
             },
 
             #endregion
 
             #region State 34
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(55)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(55)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 35
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CloseParenthesis, 56)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 56)}
             },
 
             #endregion
 
             #region State 36
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.BoolExpressionAuxNT)},
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.BoolExpressionAuxNT)},
-                {QueueObject.And,  new QueueAction(QueueObject.And, 58)},
-                {QueueObject.Or,  new QueueAction(QueueObject.And, 59)},
-                {QueueObject.Xor,  new QueueAction(QueueObject.And, 60)},
-                {QueueObject.BoolExpressionAuxNT,  new TransitionAction(57)}
+                {StackObject.Semicolon,  new StackAction(StackObject.BoolExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.BoolExpressionAuxNT)},
+                {StackObject.And,  new StackAction(StackObject.And, 58)},
+                {StackObject.Or,  new StackAction(StackObject.And, 59)},
+                {StackObject.Xor,  new StackAction(StackObject.And, 60)},
+                {StackObject.BoolExpressionAuxNT,  new TransitionAction(57)}
             },
 
             #endregion
 
             #region State 37
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(61)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(61)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)}
             },
 
             #endregion
 
             #region State 38
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(62)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(62)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)}
             },
 
             #endregion
 
             #region State 39
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.True)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.True)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.True)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.True)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.True)},
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.True)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.True)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.True)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.True)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.True)},
             },
 
             #endregion
 
             #region State 40
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.False)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.False)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.False)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.False)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.False)},
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.False)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.False)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.False)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.False)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.False)},
             },
 
             #endregion
 
             #region State 41
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Greater,  new QueueAction(QueueObject.Identifier, 64)},
-                {QueueObject.GreaterEquals,  new QueueAction(QueueObject.Identifier, 65)},
-                {QueueObject.Lower,  new QueueAction(QueueObject.Identifier, 66)},
-                {QueueObject.LowerEquals,  new QueueAction(QueueObject.Identifier, 67)},
-                {QueueObject.EqualsTerminal,  new QueueAction(QueueObject.Identifier, 68)},
-                {QueueObject.Different,  new QueueAction(QueueObject.Identifier, 69)},
-                {QueueObject.RelationalExpressionAuxNT,  new TransitionAction(63)}
+                {StackObject.Greater,  new StackAction(StackObject.Identifier, 64)},
+                {StackObject.GreaterEquals,  new StackAction(StackObject.Identifier, 65)},
+                {StackObject.Lower,  new StackAction(StackObject.Identifier, 66)},
+                {StackObject.LowerEquals,  new StackAction(StackObject.Identifier, 67)},
+                {StackObject.EqualsTerminal,  new StackAction(StackObject.Identifier, 68)},
+                {StackObject.Different,  new StackAction(StackObject.Identifier, 69)},
+                {StackObject.RelationalExpressionAuxNT,  new TransitionAction(63)}
             },
 
             #endregion
 
             #region State 42
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.And,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Sum,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Substract,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Multiply,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Division,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Modulus,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Greater,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.GreaterEquals,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Lower,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.LowerEquals,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.EqualsTerminal,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)},
-                {QueueObject.Different,  new ReduceAction(QueueObject.ValueNT, QueueObject.Immediate)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.And,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Or,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Xor,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Sum,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Substract,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Multiply,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Division,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Modulus,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Greater,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.GreaterEquals,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Lower,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.LowerEquals,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.EqualsTerminal,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)},
+                {StackObject.Different,  new ReduceAction(StackObject.ValueNT, StackObject.Immediate)}
             },
 
             #endregion
 
             #region State 43
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.And,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Sum,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Substract,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Multiply,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Division,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Modulus,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Greater,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.GreaterEquals,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Lower,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.LowerEquals,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.EqualsTerminal,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)},
-                {QueueObject.Different,  new ReduceAction(QueueObject.ValueNT, QueueObject.Identifier)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.And,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Or,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Xor,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Sum,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Substract,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Multiply,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Division,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Modulus,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Greater,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.GreaterEquals,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Lower,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.LowerEquals,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.EqualsTerminal,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)},
+                {StackObject.Different,  new ReduceAction(StackObject.ValueNT, StackObject.Identifier)}
             },
 
             #endregion
 
             #region State 44
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CloseParenthesis, 70)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 70)}
             },
 
             #endregion
 
             #region State 45
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 71)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 71)}
             },
 
             #endregion
 
             #region State 46
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.CheeenAttributionNT, QueueObject.AttributionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.CheeenAttributionNT, StackObject.AttributionNT)}
             },
 
             #endregion
 
             #region State 47
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 20)},
-                {QueueObject.AttributionNT,  new TransitionAction(72)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 20)},
+                {StackObject.AttributionNT,  new TransitionAction(72)}
             },
 
             #endregion
 
             #region State 48
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CloseParenthesis, 73)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 73)}
             },
 
             #endregion
 
             #region State 49
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CloseParenthesis, 74)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 74)}
             },
 
             #endregion
 
             #region State 50
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.AttributionNT, QueueObject.Identifier, QueueObject.Assignment, QueueObject.ExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.AttributionNT, QueueObject.Identifier, QueueObject.Assignment, QueueObject.ExpressionNT)},
+                {StackObject.Semicolon,  new ReduceAction(StackObject.AttributionNT, StackObject.Identifier, StackObject.Assignment, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.AttributionNT, StackObject.Identifier, StackObject.Assignment, StackObject.ExpressionNT)},
             },
 
             #endregion
 
             #region State 51
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.ExpressionAuxNT)},
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.ExpressionAuxNT)},
-                {QueueObject.Sum,  new QueueAction(QueueObject.Sum, 76)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 77)},
-                {QueueObject.Multiply,  new QueueAction(QueueObject.Multiply, 78)},
-                {QueueObject.Division,  new QueueAction(QueueObject.Division, 79)},
-                {QueueObject.Modulus,  new QueueAction(QueueObject.Modulus, 80)},
-                {QueueObject.ExpressionAuxNT,  new TransitionAction(75)}
+                {StackObject.Semicolon,  new StackAction(StackObject.ExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.ExpressionAuxNT)},
+                {StackObject.Sum,  new StackAction(StackObject.Sum, 76)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 77)},
+                {StackObject.Multiply,  new StackAction(StackObject.Multiply, 78)},
+                {StackObject.Division,  new StackAction(StackObject.Division, 79)},
+                {StackObject.Modulus,  new StackAction(StackObject.Modulus, 80)},
+                {StackObject.ExpressionAuxNT,  new TransitionAction(75)}
             },
 
             #endregion
 
             #region State 52
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(81)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(81)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 53
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(82)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(82)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 54
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.DeclVariableNT, QueueObject.VarType, QueueObject.Identifier, QueueObject.DeclVariableAuxNT, QueueObject.Semicolon)},
+                {StackObject.Nani,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.DeclVariableNT, StackObject.VarType, StackObject.Identifier, StackObject.DeclVariableAuxNT, StackObject.Semicolon)},
             },
 
             #endregion
 
             #region State 55
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.DeclVariableAuxNT, QueueObject.Assignment, QueueObject.ExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.DeclVariableAuxNT, StackObject.Assignment, StackObject.ExpressionNT)}
             },
 
             #endregion
 
             #region State 56
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenBracket,  new QueueAction(QueueObject.OpenBracket, 83)}
+                {StackObject.OpenBracket,  new StackAction(StackObject.OpenBracket, 83)}
             },
 
             #endregion
 
             #region State 57
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.BoolExpressionNT, QueueObject.RelationalExpressionNT, QueueObject.BoolExpressionAuxNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.BoolExpressionNT, QueueObject.RelationalExpressionNT, QueueObject.BoolExpressionAuxNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.RelationalExpressionNT, StackObject.BoolExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.RelationalExpressionNT, StackObject.BoolExpressionAuxNT)}
             },
 
             #endregion
 
             #region State 58
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(84)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(84)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)},
             },
 
             #endregion
 
             #region State 59
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(85)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(85)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)},
             },
 
             #endregion
 
             #region State 60
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(86)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(86)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)},
             },
 
             #endregion
 
             #region State 61
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.BoolExpressionNT, QueueObject.Not, QueueObject.BoolExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.BoolExpressionNT, QueueObject.Not, QueueObject.BoolExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.Not, StackObject.BoolExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.Not, StackObject.BoolExpressionNT)}
             },
 
             #endregion
 
             #region State 62
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CloseParenthesis, 87)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 87)}
             },
 
             #endregion
 
             #region State 63
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.ValueNT, QueueObject.RelationalExpressionAuxNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.ValueNT, QueueObject.RelationalExpressionAuxNT)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.ValueNT, QueueObject.RelationalExpressionAuxNT)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.ValueNT, QueueObject.RelationalExpressionAuxNT)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionNT, QueueObject.ValueNT, QueueObject.RelationalExpressionAuxNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.ValueNT, StackObject.RelationalExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.ValueNT, StackObject.RelationalExpressionAuxNT)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.ValueNT, StackObject.RelationalExpressionAuxNT)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.ValueNT, StackObject.RelationalExpressionAuxNT)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionNT, StackObject.ValueNT, StackObject.RelationalExpressionAuxNT)}
             },
 
             #endregion
 
             #region State 64
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Immediate, 43)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.ValueNT,  new TransitionAction(88)}
+                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.ValueNT,  new TransitionAction(88)}
             },
 
             #endregion
 
             #region State 65
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Immediate, 43)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.ValueNT,  new TransitionAction(89)}
+                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.ValueNT,  new TransitionAction(89)}
             },
 
             #endregion
 
             #region State 66
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Immediate, 43)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.ValueNT,  new TransitionAction(90)}
+                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.ValueNT,  new TransitionAction(90)}
             },
 
             #endregion
 
             #region State 67
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Immediate, 43)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.ValueNT,  new TransitionAction(91)}
+                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.ValueNT,  new TransitionAction(91)}
             },
 
             #endregion
 
             #region State 68
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Immediate, 43)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.ValueNT,  new TransitionAction(92)}
+                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.ValueNT,  new TransitionAction(92)}
             },
 
             #endregion
 
             #region State 69
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Immediate, 43)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.ValueNT,  new TransitionAction(93)}
+                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.ValueNT,  new TransitionAction(93)}
             },
 
             #endregion
 
             #region State 70
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenBracket,  new QueueAction(QueueObject.OpenBracket, 94)}
+                {StackObject.OpenBracket,  new StackAction(StackObject.OpenBracket, 94)}
             },
 
             #endregion
 
             #region State 71
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 38)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Not,  new QueueAction(QueueObject.Not, 37)},
-                {QueueObject.True,  new QueueAction(QueueObject.True, 39)},
-                {QueueObject.False,  new QueueAction(QueueObject.False, 40)},
-                {QueueObject.BoolExpressionNT,  new TransitionAction(95)},
-                {QueueObject.RelationalExpressionNT,  new TransitionAction(36)},
-                {QueueObject.ValueNT,  new TransitionAction(41)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 38)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Not,  new StackAction(StackObject.Not, 37)},
+                {StackObject.True,  new StackAction(StackObject.True, 39)},
+                {StackObject.False,  new StackAction(StackObject.False, 40)},
+                {StackObject.BoolExpressionNT,  new TransitionAction(95)},
+                {StackObject.RelationalExpressionNT,  new TransitionAction(36)},
+                {StackObject.ValueNT,  new TransitionAction(41)},
             },
 
             #endregion
 
             #region State 72
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.CheeenAttributionNT, QueueObject.VarType, QueueObject.AttributionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.CheeenAttributionNT, StackObject.VarType, StackObject.AttributionNT)}
             },
 
             #endregion
 
             #region State 73
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 96)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 96)}
             },
 
             #endregion
 
             #region State 74
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 97)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 97)}
             },
 
             #endregion
 
             #region State 75
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ExpressionNT, QueueObject.ValueNT, QueueObject.ExpressionAuxNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ExpressionNT, QueueObject.ValueNT, QueueObject.ExpressionAuxNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionNT, StackObject.ValueNT, StackObject.ExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionNT, StackObject.ValueNT, StackObject.ExpressionAuxNT)}
             },
 
             #endregion
 
             #region State 76
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(98)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(98)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 77
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(99)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(99)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 78
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(100)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(100)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 79
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(101)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(101)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 80
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 43)},
-                {QueueObject.OpenParenthesis,  new QueueAction(QueueObject.OpenParenthesis, 52)},
-                {QueueObject.Immediate,  new QueueAction(QueueObject.Immediate, 42)},
-                {QueueObject.Substract,  new QueueAction(QueueObject.Substract, 53)},
-                {QueueObject.ExpressionNT,  new TransitionAction(102)},
-                {QueueObject.ValueNT,  new TransitionAction(51)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
+                {StackObject.OpenParenthesis,  new StackAction(StackObject.OpenParenthesis, 52)},
+                {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 53)},
+                {StackObject.ExpressionNT,  new TransitionAction(102)},
+                {StackObject.ValueNT,  new TransitionAction(51)}
             },
 
             #endregion
 
             #region State 81
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CloseParenthesis, 103)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 103)}
             },
 
             #endregion
 
             #region State 82
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.CloseParenthesis, QueueObject.Substract, QueueObject.ExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.CloseParenthesis, QueueObject.Substract, QueueObject.ExpressionNT)},
+                {StackObject.Semicolon,  new ReduceAction(StackObject.CloseParenthesis, StackObject.Substract, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.CloseParenthesis, StackObject.Substract, StackObject.ExpressionNT)},
             },
 
             #endregion
 
             #region State 83
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.Honk, new QueueAction(QueueObject.Honk, 12) },
-                {QueueObject.Pedal, new QueueAction(QueueObject.Pedal, 13) },
-                {QueueObject.VarType, new QueueAction(QueueObject.VarType, 14) },
-                {QueueObject.Identifier, new QueueAction(QueueObject.Identifier, 20) },
-                {QueueObject.Cirno, new QueueAction(QueueObject.Cirno, 15) },
-                {QueueObject.Mokou, new QueueAction(QueueObject.Mokou, 16) },
-                {QueueObject.Cheeen, new QueueAction(QueueObject.Cheeen, 17) },
-                {QueueObject.Marisa, new QueueAction(QueueObject.Marisa, 18) },
-                {QueueObject.Stb, new QueueAction(QueueObject.Stb, 19) },
-                {QueueObject.CloseBracket, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.StatementNT, new TransitionAction(104) },
-                {QueueObject.StatementAuxNT, new TransitionAction(4) },
-                {QueueObject.DeclVariableNT, new TransitionAction(5) },
-                {QueueObject.CirnoNT, new TransitionAction(6) },
-                {QueueObject.MokouNT, new TransitionAction(7) },
-                {QueueObject.CheeenNT, new TransitionAction(8) },
-                {QueueObject.MarisaNT, new TransitionAction(9) },
-                {QueueObject.StbNT, new TransitionAction(10) },
-                {QueueObject.AttributionNT, new TransitionAction(11) }
+                {StackObject.Nani, new StackAction(StackObject.StatementNT) },
+                {StackObject.Honk, new StackAction(StackObject.Honk, 12) },
+                {StackObject.Pedal, new StackAction(StackObject.Pedal, 13) },
+                {StackObject.VarType, new StackAction(StackObject.VarType, 14) },
+                {StackObject.Identifier, new StackAction(StackObject.Identifier, 20) },
+                {StackObject.Cirno, new StackAction(StackObject.Cirno, 15) },
+                {StackObject.Mokou, new StackAction(StackObject.Mokou, 16) },
+                {StackObject.Cheeen, new StackAction(StackObject.Cheeen, 17) },
+                {StackObject.Marisa, new StackAction(StackObject.Marisa, 18) },
+                {StackObject.Stb, new StackAction(StackObject.Stb, 19) },
+                {StackObject.CloseBracket, new StackAction(StackObject.StatementNT) },
+                {StackObject.StatementNT, new TransitionAction(104) },
+                {StackObject.StatementAuxNT, new TransitionAction(4) },
+                {StackObject.DeclVariableNT, new TransitionAction(5) },
+                {StackObject.CirnoNT, new TransitionAction(6) },
+                {StackObject.MokouNT, new TransitionAction(7) },
+                {StackObject.CheeenNT, new TransitionAction(8) },
+                {StackObject.MarisaNT, new TransitionAction(9) },
+                {StackObject.StbNT, new TransitionAction(10) },
+                {StackObject.AttributionNT, new TransitionAction(11) }
             }, 
 
             #endregion
 
             #region State 84
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.BoolExpressionAuxNT, QueueObject.And, QueueObject.BoolExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.BoolExpressionAuxNT, QueueObject.And, QueueObject.BoolExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionAuxNT, StackObject.And, StackObject.BoolExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionAuxNT, StackObject.And, StackObject.BoolExpressionNT)}
             },
 
             #endregion
 
             #region State 85
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.BoolExpressionAuxNT, QueueObject.Or, QueueObject.BoolExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.BoolExpressionAuxNT, QueueObject.Or, QueueObject.BoolExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionAuxNT, StackObject.Or, StackObject.BoolExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionAuxNT, StackObject.Or, StackObject.BoolExpressionNT)}
             },
 
             #endregion
 
             #region State 86
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.BoolExpressionAuxNT, QueueObject.Xor, QueueObject.BoolExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.BoolExpressionAuxNT, QueueObject.Xor, QueueObject.BoolExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionAuxNT, StackObject.Xor, StackObject.BoolExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionAuxNT, StackObject.Xor, StackObject.BoolExpressionNT)}
             },
 
             #endregion
 
             #region State 87
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.BoolExpressionNT, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.BoolExpressionNT, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis)}
             },
 
             #endregion
 
             #region State 88
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Greater, QueueObject.ValueNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Greater, QueueObject.ValueNT)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Greater, QueueObject.ValueNT)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Greater, QueueObject.ValueNT)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Greater, QueueObject.ValueNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Greater, StackObject.ValueNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Greater, StackObject.ValueNT)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Greater, StackObject.ValueNT)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Greater, StackObject.ValueNT)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Greater, StackObject.ValueNT)}
             },
 
             #endregion
 
             #region State 89
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.GreaterEquals, QueueObject.ValueNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.GreaterEquals, QueueObject.ValueNT)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.GreaterEquals, QueueObject.ValueNT)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.GreaterEquals, QueueObject.ValueNT)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.GreaterEquals, QueueObject.ValueNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.GreaterEquals, StackObject.ValueNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.GreaterEquals, StackObject.ValueNT)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.GreaterEquals, StackObject.ValueNT)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.GreaterEquals, StackObject.ValueNT)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.GreaterEquals, StackObject.ValueNT)}
             },
 
             #endregion
 
             #region State 90
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Lower, QueueObject.ValueNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Lower, QueueObject.ValueNT)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Lower, QueueObject.ValueNT)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Lower, QueueObject.ValueNT)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Lower, QueueObject.ValueNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Lower, StackObject.ValueNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Lower, StackObject.ValueNT)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Lower, StackObject.ValueNT)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Lower, StackObject.ValueNT)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Lower, StackObject.ValueNT)}
             },
 
             #endregion
 
             #region State 91
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.LowerEquals, QueueObject.ValueNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.LowerEquals, QueueObject.ValueNT)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.LowerEquals, QueueObject.ValueNT)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.LowerEquals, QueueObject.ValueNT)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.LowerEquals, QueueObject.ValueNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.LowerEquals, StackObject.ValueNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.LowerEquals, StackObject.ValueNT)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.LowerEquals, StackObject.ValueNT)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.LowerEquals, StackObject.ValueNT)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.LowerEquals, StackObject.ValueNT)}
             },
 
             #endregion
 
             #region State 92
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.EqualsTerminal, QueueObject.ValueNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.EqualsTerminal, QueueObject.ValueNT)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.EqualsTerminal, QueueObject.ValueNT)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.EqualsTerminal, QueueObject.ValueNT)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.EqualsTerminal, QueueObject.ValueNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.EqualsTerminal, StackObject.ValueNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.EqualsTerminal, StackObject.ValueNT)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.EqualsTerminal, StackObject.ValueNT)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.EqualsTerminal, StackObject.ValueNT)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.EqualsTerminal, StackObject.ValueNT)}
             },
 
             #endregion
 
             #region State 93
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Different, QueueObject.ValueNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Different, QueueObject.ValueNT)},
-                {QueueObject.And,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Different, QueueObject.ValueNT)},
-                {QueueObject.Or,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Different, QueueObject.ValueNT)},
-                {QueueObject.Xor,  new ReduceAction(QueueObject.RelationalExpressionAuxNT, QueueObject.Different, QueueObject.ValueNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Different, StackObject.ValueNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Different, StackObject.ValueNT)},
+                {StackObject.And,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Different, StackObject.ValueNT)},
+                {StackObject.Or,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Different, StackObject.ValueNT)},
+                {StackObject.Xor,  new ReduceAction(StackObject.RelationalExpressionAuxNT, StackObject.Different, StackObject.ValueNT)}
             },
 
             #endregion
 
             #region State 94
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.Honk, new QueueAction(QueueObject.Honk, 12) },
-                {QueueObject.Pedal, new QueueAction(QueueObject.Pedal, 13) },
-                {QueueObject.VarType, new QueueAction(QueueObject.VarType, 14) },
-                {QueueObject.Identifier, new QueueAction(QueueObject.Identifier, 20) },
-                {QueueObject.Cirno, new QueueAction(QueueObject.Cirno, 15) },
-                {QueueObject.Mokou, new QueueAction(QueueObject.Mokou, 16) },
-                {QueueObject.Cheeen, new QueueAction(QueueObject.Cheeen, 17) },
-                {QueueObject.Marisa, new QueueAction(QueueObject.Marisa, 18) },
-                {QueueObject.Stb, new QueueAction(QueueObject.Stb, 19) },
-                {QueueObject.CloseBracket, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.StatementNT, new TransitionAction(105) },
-                {QueueObject.StatementAuxNT, new TransitionAction(4) },
-                {QueueObject.DeclVariableNT, new TransitionAction(5) },
-                {QueueObject.CirnoNT, new TransitionAction(6) },
-                {QueueObject.MokouNT, new TransitionAction(7) },
-                {QueueObject.CheeenNT, new TransitionAction(8) },
-                {QueueObject.MarisaNT, new TransitionAction(9) },
-                {QueueObject.StbNT, new TransitionAction(10) },
-                {QueueObject.AttributionNT, new TransitionAction(11) }
+                {StackObject.Nani, new StackAction(StackObject.StatementNT) },
+                {StackObject.Honk, new StackAction(StackObject.Honk, 12) },
+                {StackObject.Pedal, new StackAction(StackObject.Pedal, 13) },
+                {StackObject.VarType, new StackAction(StackObject.VarType, 14) },
+                {StackObject.Identifier, new StackAction(StackObject.Identifier, 20) },
+                {StackObject.Cirno, new StackAction(StackObject.Cirno, 15) },
+                {StackObject.Mokou, new StackAction(StackObject.Mokou, 16) },
+                {StackObject.Cheeen, new StackAction(StackObject.Cheeen, 17) },
+                {StackObject.Marisa, new StackAction(StackObject.Marisa, 18) },
+                {StackObject.Stb, new StackAction(StackObject.Stb, 19) },
+                {StackObject.CloseBracket, new StackAction(StackObject.StatementNT) },
+                {StackObject.StatementNT, new TransitionAction(105) },
+                {StackObject.StatementAuxNT, new TransitionAction(4) },
+                {StackObject.DeclVariableNT, new TransitionAction(5) },
+                {StackObject.CirnoNT, new TransitionAction(6) },
+                {StackObject.MokouNT, new TransitionAction(7) },
+                {StackObject.CheeenNT, new TransitionAction(8) },
+                {StackObject.MarisaNT, new TransitionAction(9) },
+                {StackObject.StbNT, new TransitionAction(10) },
+                {StackObject.AttributionNT, new TransitionAction(11) }
             }, 
 
             #endregion
 
             #region State 95
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new QueueAction(QueueObject.Semicolon, 106)}
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 106)}
             },
 
             #endregion
 
             #region State 96
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.MarisaNT, QueueObject.Marisa, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
+                {StackObject.Nani,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
             },
 
             #endregion
 
             #region State 97
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.StbNT, QueueObject.Stb, QueueObject.OpenParenthesis, QueueObject.Text, QueueObject.CloseParenthesis, QueueObject.Semicolon)},
+                {StackObject.Nani,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
             },
 
             #endregion
 
             #region State 98
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Sum, QueueObject.ExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Sum, QueueObject.ExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Sum, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Sum, StackObject.ExpressionNT)}
             },
 
             #endregion
 
             #region State 99
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Substract, QueueObject.ExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Substract, QueueObject.ExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Substract, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Substract, StackObject.ExpressionNT)}
             },
 
             #endregion
 
             #region State 100
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Multiply, QueueObject.ExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Multiply, QueueObject.ExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Multiply, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Multiply, StackObject.ExpressionNT)}
             },
 
             #endregion
 
             #region State 101
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Division, QueueObject.ExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Division, QueueObject.ExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Division, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Division, StackObject.ExpressionNT)}
             },
 
             #endregion
 
             #region State 102
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Modulus, QueueObject.ExpressionNT)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ExpressionAuxNT, QueueObject.Modulus, QueueObject.ExpressionNT)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Modulus, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionAuxNT, StackObject.Modulus, StackObject.ExpressionNT)}
             },
 
             #endregion
 
             #region State 103
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Semicolon,  new ReduceAction(QueueObject.ExpressionNT, QueueObject.OpenParenthesis, QueueObject.ExpressionNT, QueueObject.CloseParenthesis)},
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.ExpressionNT, QueueObject.OpenParenthesis, QueueObject.ExpressionNT, QueueObject.CloseParenthesis)}
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis)}
             },
 
             #endregion
 
             #region State 104
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseBracket,  new QueueAction(QueueObject.CloseBracket, 107)}
+                {StackObject.CloseBracket,  new StackAction(StackObject.CloseBracket, 107)}
             },
 
             #endregion
 
             #region State 105
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseBracket,  new QueueAction(QueueObject.CloseBracket, 108)}
+                {StackObject.CloseBracket,  new StackAction(StackObject.CloseBracket, 108)}
             },
 
             #endregion
 
             #region State 106
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CheeenExpressionNT)},
-                {QueueObject.Identifier,  new QueueAction(QueueObject.Identifier, 20)},
-                {QueueObject.AttributionNT,  new TransitionAction(110)},
-                {QueueObject.CheeenExpressionNT,  new TransitionAction(109)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CheeenExpressionNT)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 20)},
+                {StackObject.AttributionNT,  new TransitionAction(110)},
+                {StackObject.CheeenExpressionNT,  new TransitionAction(109)}
             },
 
             #endregion
 
             #region State 107
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Honk, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Pedal, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.VarType, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Identifier, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Cirno, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Mokou, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Cheeen, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Marisa, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Stb, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.CloseBracket, new QueueAction(QueueObject.CirnoAuxNT) },
-                {QueueObject.Baka, new QueueAction(QueueObject.Baka, 112) },
-                {QueueObject.CirnoAuxNT, new TransitionAction(111) }
+                {StackObject.Nani, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Honk, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Pedal, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.VarType, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Identifier, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Cirno, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Mokou, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Cheeen, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Marisa, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Stb, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.CloseBracket, new StackAction(StackObject.CirnoAuxNT) },
+                {StackObject.Baka, new StackAction(StackObject.Baka, 112) },
+                {StackObject.CirnoAuxNT, new TransitionAction(111) }
             }, 
 
             #endregion
 
             #region State 108
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.MokouNT, QueueObject.Mokou, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)}
+                {StackObject.Nani,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Stb,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Honk,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.VarType,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.MokouNT, StackObject.Mokou, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)}
             },
 
             #endregion
 
             #region State 109
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new QueueAction(QueueObject.CloseParenthesis, 113)}
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 113)}
             },
 
             #endregion
 
             #region State 110
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseParenthesis,  new ReduceAction(QueueObject.CheeenExpressionNT, QueueObject.AttributionNT)}
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.CheeenExpressionNT, StackObject.AttributionNT)}
             },
 
             #endregion
 
             #region State 111
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.CirnoNT, QueueObject.Cirno, QueueObject.OpenParenthesis, QueueObject.BoolExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket, QueueObject.CirnoAuxNT)}
+                {StackObject.Nani,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Stb,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Honk,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.VarType,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.CirnoNT, StackObject.Cirno, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket, StackObject.CirnoAuxNT)}
             },
 
             #endregion
 
             #region State 112
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenBracket,  new QueueAction(QueueObject.OpenBracket, 114)}
+                {StackObject.OpenBracket,  new StackAction(StackObject.OpenBracket, 114)}
             },
 
             #endregion
 
             #region State 113
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.OpenBracket,  new QueueAction(QueueObject.OpenBracket, 115)}
+                {StackObject.OpenBracket,  new StackAction(StackObject.OpenBracket, 115)}
             },
 
             #endregion
 
             #region State 114
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.Honk, new QueueAction(QueueObject.Honk, 12) },
-                {QueueObject.Pedal, new QueueAction(QueueObject.Pedal, 13) },
-                {QueueObject.VarType, new QueueAction(QueueObject.VarType, 14) },
-                {QueueObject.Identifier, new QueueAction(QueueObject.Identifier, 20) },
-                {QueueObject.Cirno, new QueueAction(QueueObject.Cirno, 15) },
-                {QueueObject.Mokou, new QueueAction(QueueObject.Mokou, 16) },
-                {QueueObject.Cheeen, new QueueAction(QueueObject.Cheeen, 17) },
-                {QueueObject.Marisa, new QueueAction(QueueObject.Marisa, 18) },
-                {QueueObject.Stb, new QueueAction(QueueObject.Stb, 19) },
-                {QueueObject.CloseBracket, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.StatementNT, new TransitionAction(116) },
-                {QueueObject.StatementAuxNT, new TransitionAction(4) },
-                {QueueObject.DeclVariableNT, new TransitionAction(5) },
-                {QueueObject.CirnoNT, new TransitionAction(6) },
-                {QueueObject.MokouNT, new TransitionAction(7) },
-                {QueueObject.CheeenNT, new TransitionAction(8) },
-                {QueueObject.MarisaNT, new TransitionAction(9) },
-                {QueueObject.StbNT, new TransitionAction(10) },
-                {QueueObject.AttributionNT, new TransitionAction(11) }
+                {StackObject.Nani, new StackAction(StackObject.StatementNT) },
+                {StackObject.Honk, new StackAction(StackObject.Honk, 12) },
+                {StackObject.Pedal, new StackAction(StackObject.Pedal, 13) },
+                {StackObject.VarType, new StackAction(StackObject.VarType, 14) },
+                {StackObject.Identifier, new StackAction(StackObject.Identifier, 20) },
+                {StackObject.Cirno, new StackAction(StackObject.Cirno, 15) },
+                {StackObject.Mokou, new StackAction(StackObject.Mokou, 16) },
+                {StackObject.Cheeen, new StackAction(StackObject.Cheeen, 17) },
+                {StackObject.Marisa, new StackAction(StackObject.Marisa, 18) },
+                {StackObject.Stb, new StackAction(StackObject.Stb, 19) },
+                {StackObject.CloseBracket, new StackAction(StackObject.StatementNT) },
+                {StackObject.StatementNT, new TransitionAction(116) },
+                {StackObject.StatementAuxNT, new TransitionAction(4) },
+                {StackObject.DeclVariableNT, new TransitionAction(5) },
+                {StackObject.CirnoNT, new TransitionAction(6) },
+                {StackObject.MokouNT, new TransitionAction(7) },
+                {StackObject.CheeenNT, new TransitionAction(8) },
+                {StackObject.MarisaNT, new TransitionAction(9) },
+                {StackObject.StbNT, new TransitionAction(10) },
+                {StackObject.AttributionNT, new TransitionAction(11) }
             }, 
 
             #endregion
 
             #region State 115
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.Honk, new QueueAction(QueueObject.Honk, 12) },
-                {QueueObject.Pedal, new QueueAction(QueueObject.Pedal, 13) },
-                {QueueObject.VarType, new QueueAction(QueueObject.VarType, 14) },
-                {QueueObject.Identifier, new QueueAction(QueueObject.Identifier, 20) },
-                {QueueObject.Cirno, new QueueAction(QueueObject.Cirno, 15) },
-                {QueueObject.Mokou, new QueueAction(QueueObject.Mokou, 16) },
-                {QueueObject.Cheeen, new QueueAction(QueueObject.Cheeen, 17) },
-                {QueueObject.Marisa, new QueueAction(QueueObject.Marisa, 18) },
-                {QueueObject.Stb, new QueueAction(QueueObject.Stb, 19) },
-                {QueueObject.CloseBracket, new QueueAction(QueueObject.StatementNT) },
-                {QueueObject.StatementNT, new TransitionAction(117) },
-                {QueueObject.StatementAuxNT, new TransitionAction(4) },
-                {QueueObject.DeclVariableNT, new TransitionAction(5) },
-                {QueueObject.CirnoNT, new TransitionAction(6) },
-                {QueueObject.MokouNT, new TransitionAction(7) },
-                {QueueObject.CheeenNT, new TransitionAction(8) },
-                {QueueObject.MarisaNT, new TransitionAction(9) },
-                {QueueObject.StbNT, new TransitionAction(10) },
-                {QueueObject.AttributionNT, new TransitionAction(11) }
+                {StackObject.Nani, new StackAction(StackObject.StatementNT) },
+                {StackObject.Honk, new StackAction(StackObject.Honk, 12) },
+                {StackObject.Pedal, new StackAction(StackObject.Pedal, 13) },
+                {StackObject.VarType, new StackAction(StackObject.VarType, 14) },
+                {StackObject.Identifier, new StackAction(StackObject.Identifier, 20) },
+                {StackObject.Cirno, new StackAction(StackObject.Cirno, 15) },
+                {StackObject.Mokou, new StackAction(StackObject.Mokou, 16) },
+                {StackObject.Cheeen, new StackAction(StackObject.Cheeen, 17) },
+                {StackObject.Marisa, new StackAction(StackObject.Marisa, 18) },
+                {StackObject.Stb, new StackAction(StackObject.Stb, 19) },
+                {StackObject.CloseBracket, new StackAction(StackObject.StatementNT) },
+                {StackObject.StatementNT, new TransitionAction(117) },
+                {StackObject.StatementAuxNT, new TransitionAction(4) },
+                {StackObject.DeclVariableNT, new TransitionAction(5) },
+                {StackObject.CirnoNT, new TransitionAction(6) },
+                {StackObject.MokouNT, new TransitionAction(7) },
+                {StackObject.CheeenNT, new TransitionAction(8) },
+                {StackObject.MarisaNT, new TransitionAction(9) },
+                {StackObject.StbNT, new TransitionAction(10) },
+                {StackObject.AttributionNT, new TransitionAction(11) }
             }, 
 
             #endregion
 
             #region State 116
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseBracket,  new QueueAction(QueueObject.CloseBracket, 118)}
+                {StackObject.CloseBracket,  new StackAction(StackObject.CloseBracket, 118)}
             },
 
             #endregion
 
             #region State 117
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.CloseBracket,  new QueueAction(QueueObject.CloseBracket, 119)}
+                {StackObject.CloseBracket,  new StackAction(StackObject.CloseBracket, 119)}
             },
 
             #endregion
 
             #region State 118
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.CirnoAuxNT, QueueObject.Baka, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)}
+                {StackObject.Nani,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Stb,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Honk,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.VarType,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.CirnoAuxNT, StackObject.Baka, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)}
             },
 
             #endregion
 
             #region State 119
 
-            new Dictionary<QueueObject, IAction>
+            new Dictionary<StackObject, IAction>
             {
-                {QueueObject.Nani,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Cirno,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Mokou,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Cheeen,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Marisa,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Stb,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Honk,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Pedal,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.VarType,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.Identifier,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)},
-                {QueueObject.CloseBracket,  new ReduceAction(QueueObject.CheeenNT, QueueObject.Cheeen, QueueObject.OpenParenthesis, QueueObject.CheeenAttributionNT, QueueObject.Semicolon, QueueObject.BoolExpressionNT, QueueObject.Semicolon, QueueObject.CheeenExpressionNT, QueueObject.CloseParenthesis, QueueObject.OpenBracket, QueueObject.StatementNT, QueueObject.CloseBracket)}
+                {StackObject.Nani,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Stb,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Honk,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.VarType,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)}
             },
 
             #endregion
-
         };
     }
 }
