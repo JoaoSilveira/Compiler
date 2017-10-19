@@ -113,7 +113,7 @@ namespace Compiler.Token
                 #region Control Token
 
                 case ";":
-                    return new Token(TokenType.SemiColon, line, column);
+                    return new Token(TokenType.Semicolon, line, column);
                 case "(":
                     return new Token(TokenType.OpenParenthesis, line, column);
                 case ")":

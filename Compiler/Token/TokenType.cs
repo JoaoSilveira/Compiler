@@ -5,11 +5,12 @@ namespace Compiler.Token
     [Flags]
     public enum TokenType : long
     {
+        EndString = 0,
         Jaoooo = 0x1,
         Nani = 0x2,
         Honk = 0x4,
         Pedal = 0x8,
-        SemiColon = 0x10,
+        Semicolon = 0x10,
         Th1 = 0x20,
         Th2 = 0x40,
         Th4 = 0x80,

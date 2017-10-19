@@ -221,12 +221,11 @@ namespace Compiler.Token
                     #endregion
 
                     default:
-
-                        return null;
+                        throw new Exception("Something went Wrong with the compiler");
                 }
 
                 if (EndOfStream)
-                    return null;
+                    return new Token(TokenType.EndString, Line, Column);
 
                 if (_reader.Read() != '\n') continue;
 

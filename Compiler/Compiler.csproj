@@ -42,6 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analyser\AcceptAction.cs" />
+    <Compile Include="Analyser\IAction.cs" />
+    <Compile Include="Analyser\ActionFlags.cs" />
+    <Compile Include="Analyser\NonTerminalType.cs" />
+    <Compile Include="Analyser\QueueAction.cs" />
+    <Compile Include="Analyser\QueueObject.cs" />
+    <Compile Include="Analyser\ReduceAction.cs" />
+    <Compile Include="Analyser\States.cs" />
+    <Compile Include="Analyser\TransitionAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Token\IdentifierToken.cs" />
@@ -54,8 +63,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Syntax\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
