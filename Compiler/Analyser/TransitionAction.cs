@@ -18,7 +18,7 @@ namespace Compiler.Analyser
         {
             states.Push(State);
 
-            return 0;
+            return 2;
         }
     }
 }

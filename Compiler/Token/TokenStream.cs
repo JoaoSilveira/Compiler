@@ -11,6 +11,7 @@ namespace Compiler.Token
         public int Line { get; private set; }
         public int Column { get; private set; }
         public bool EndOfStream => _reader != null && _reader.EndOfStream;
+        private Token _peekObj;
 
         public TokenStream(string file)
         {
@@ -23,6 +24,11 @@ namespace Compiler.Token
             _reader = new StreamReader(File.OpenRead(file));
             Line = 1;
             Column = 1;
+        }
+
+        public Token LastRead()
+        {
+            return _peekObj;
         }
 
         public Token Read()
@@ -91,7 +97,8 @@ namespace Compiler.Token
 
                         _builder.Append(c);
                         _reader.Read();
-                        return GetOperatorToken();
+                        _peekObj = GetOperatorToken();
+                        return _peekObj;
                     #endregion
 
                     #region State 2
@@ -99,7 +106,8 @@ namespace Compiler.Token
                     case 2:
                         if (!TokenUtil.IsBodyOfId(c))
                         {
-                            return GetToken(TokenType.Identifier);
+                            _peekObj = GetToken(TokenType.Identifier);
+                            return _peekObj;
                         }
 
                         _builder.Append(c);
@@ -118,7 +126,8 @@ namespace Compiler.Token
 
                         if (c != '.')
                         {
-                            return GetToken(TokenType.Immediate | TokenType.Th8);
+                            _peekObj = GetToken(TokenType.Immediate | TokenType.Th8);
+                            return _peekObj;
                         }
 
                         _builder.Append(c);
@@ -144,7 +153,8 @@ namespace Compiler.Token
                     case 5:
                         if (!char.IsNumber(c))
                         {
-                            return GetToken(TokenType.Immediate | TokenType.Kk8);
+                            _peekObj = GetToken(TokenType.Immediate | TokenType.Kk8);
+                            return _peekObj;
                         }
 
                         _builder.Append(c);
@@ -169,7 +179,8 @@ namespace Compiler.Token
                                 break;
                             case '"':
                                 _reader.Read();
-                                return GetToken(TokenType.Text);
+                                _peekObj = GetToken(TokenType.Text);
+                                return _peekObj;
                             case '\n':
                                 throw new Exception($"Expected end of string before new line. Line {Line}: Column {Column}");
                             default:
@@ -185,7 +196,8 @@ namespace Compiler.Token
                     case 7:
                         if (c != '/')
                         {
-                            return GetOperatorToken();
+                            _peekObj = GetOperatorToken();
+                            return _peekObj;
                         }
 
                         _builder.Append(c);
@@ -216,7 +228,8 @@ namespace Compiler.Token
                             _builder.Append(c);
                         }
 
-                        return GetOperatorToken();
+                        _peekObj = GetOperatorToken();
+                        return _peekObj;
 
                     #endregion
 

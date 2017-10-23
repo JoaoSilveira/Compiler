@@ -500,8 +500,8 @@ namespace Compiler.Analyser
                 {StackObject.Semicolon,  new StackAction(StackObject.BoolExpressionAuxNT)},
                 {StackObject.CloseParenthesis,  new StackAction(StackObject.BoolExpressionAuxNT)},
                 {StackObject.And,  new StackAction(StackObject.And, 58)},
-                {StackObject.Or,  new StackAction(StackObject.And, 59)},
-                {StackObject.Xor,  new StackAction(StackObject.And, 60)},
+                {StackObject.Or,  new StackAction(StackObject.Or, 59)},
+                {StackObject.Xor,  new StackAction(StackObject.Xor, 60)},
                 {StackObject.BoolExpressionAuxNT,  new TransitionAction(57)}
             },
 
@@ -571,12 +571,12 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Greater,  new StackAction(StackObject.Identifier, 64)},
-                {StackObject.GreaterEquals,  new StackAction(StackObject.Identifier, 65)},
-                {StackObject.Lower,  new StackAction(StackObject.Identifier, 66)},
-                {StackObject.LowerEquals,  new StackAction(StackObject.Identifier, 67)},
-                {StackObject.EqualsTerminal,  new StackAction(StackObject.Identifier, 68)},
-                {StackObject.Different,  new StackAction(StackObject.Identifier, 69)},
+                {StackObject.Greater,  new StackAction(StackObject.Greater, 64)},
+                {StackObject.GreaterEquals,  new StackAction(StackObject.GreaterEquals, 65)},
+                {StackObject.Lower,  new StackAction(StackObject.Lower, 66)},
+                {StackObject.LowerEquals,  new StackAction(StackObject.LowerEquals, 67)},
+                {StackObject.EqualsTerminal,  new StackAction(StackObject.EqualsTerminal, 68)},
+                {StackObject.Different,  new StackAction(StackObject.Different, 69)},
                 {StackObject.RelationalExpressionAuxNT,  new TransitionAction(63)}
             },
 
@@ -873,7 +873,7 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
                 {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
                 {StackObject.ValueNT,  new TransitionAction(88)}
             },
@@ -884,7 +884,7 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
                 {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
                 {StackObject.ValueNT,  new TransitionAction(89)}
             },
@@ -895,7 +895,7 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
                 {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
                 {StackObject.ValueNT,  new TransitionAction(90)}
             },
@@ -906,7 +906,7 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
                 {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
                 {StackObject.ValueNT,  new TransitionAction(91)}
             },
@@ -917,7 +917,7 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
                 {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
                 {StackObject.ValueNT,  new TransitionAction(92)}
             },
@@ -928,7 +928,7 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Identifier,  new StackAction(StackObject.Immediate, 43)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 43)},
                 {StackObject.Immediate,  new StackAction(StackObject.Immediate, 42)},
                 {StackObject.ValueNT,  new TransitionAction(93)}
             },
@@ -1081,8 +1081,8 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Semicolon,  new ReduceAction(StackObject.CloseParenthesis, StackObject.Substract, StackObject.ExpressionNT)},
-                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.CloseParenthesis, StackObject.Substract, StackObject.ExpressionNT)},
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionNT, StackObject.Substract, StackObject.ExpressionNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionNT, StackObject.Substract, StackObject.ExpressionNT)},
             },
 
             #endregion
@@ -1149,8 +1149,12 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis)},
-                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis)}
+                {StackObject.Semicolon,  new StackAction(StackObject.BoolExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.BoolExpressionAuxNT)},
+                {StackObject.And,  new StackAction(StackObject.And, 58)},
+                {StackObject.Or,  new StackAction(StackObject.Or, 59)},
+                {StackObject.Xor,  new StackAction(StackObject.Xor, 60)},
+                {StackObject.BoolExpressionAuxNT, new TransitionAction(120) }
             },
 
             #endregion
@@ -1362,8 +1366,14 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis)},
-                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis)}
+                {StackObject.Semicolon,  new StackAction(StackObject.ExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.ExpressionAuxNT)},
+                {StackObject.Sum,  new StackAction(StackObject.Sum, 76)},
+                {StackObject.Substract,  new StackAction(StackObject.Substract, 77)},
+                {StackObject.Multiply,  new StackAction(StackObject.Multiply, 78)},
+                {StackObject.Division,  new StackAction(StackObject.Division, 79)},
+                {StackObject.Modulus,  new StackAction(StackObject.Modulus, 80)},
+                {StackObject.ExpressionAuxNT,  new TransitionAction(121)},
             },
 
             #endregion
@@ -1601,6 +1611,26 @@ namespace Compiler.Analyser
                 {StackObject.VarType,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
                 {StackObject.Identifier,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)},
                 {StackObject.CloseBracket,  new ReduceAction(StackObject.CheeenNT, StackObject.Cheeen, StackObject.OpenParenthesis, StackObject.CheeenAttributionNT, StackObject.Semicolon, StackObject.BoolExpressionNT, StackObject.Semicolon, StackObject.CheeenExpressionNT, StackObject.CloseParenthesis, StackObject.OpenBracket, StackObject.StatementNT, StackObject.CloseBracket)}
+            },
+
+            #endregion
+
+            #region State 120
+
+            new Dictionary<StackObject, IAction>
+            {
+                {StackObject.Semicolon,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.BoolExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.BoolExpressionNT, StackObject.OpenParenthesis, StackObject.BoolExpressionNT, StackObject.CloseParenthesis, StackObject.BoolExpressionAuxNT)},
+            },
+
+            #endregion
+
+            #region State 121
+
+            new Dictionary<StackObject, IAction>
+            {
+                {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis, StackObject.ExpressionAuxNT)},
+                {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis, StackObject.ExpressionAuxNT)},
             },
 
             #endregion

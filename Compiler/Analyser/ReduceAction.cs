@@ -20,17 +20,20 @@ namespace Compiler.Analyser
 
         public int Resolve(Stack<StackObject> actions, Stack<int> states)
         {
-            foreach (var queueObject in ReduceStack.Reverse())
+            var aux = NonTerminal;
+            foreach (var stackObject in ReduceStack.Reverse())
             {
-                if (!queueObject.Equals(actions.Peek()))
+                if (!stackObject.Equals(actions.Peek()))
                 {
-                    throw new Exception("Handle error someday");
+                    throw new Exception($"{stackObject} expected but found {actions.Peek()}");
                 }
 
-                actions.Pop();
+                aux = actions.Pop();
                 states.Pop();
             }
-            actions.Push(NonTerminal);
+
+            aux = new StackObject(NonTerminal.Data, NonTerminal.IsTerminal, aux.Line, aux.Column);
+            actions.Push(aux);
 
             return 1;
         }

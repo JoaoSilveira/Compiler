@@ -19,12 +19,19 @@ namespace Compiler
 
                 if (!File.Exists(args[0]))
                     throw new Exception("Inexistent file");
-
-                using (var stream = new TokenStream(args[0]))
+                if (true)
                 {
-                    while (!stream.EndOfStream)
+                    var analyser = new Analyser.Analyser();
+                    analyser.Analyse(args[0]);
+                }
+                else
+                {
+                    using (var stream = new TokenStream(args[0]))
                     {
-                        Console.WriteLine(stream.Read());
+                        while (!stream.EndOfStream)
+                        {
+                            Console.WriteLine(stream.Read());
+                        }
                     }
                 }
             }

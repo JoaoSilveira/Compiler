@@ -56,6 +56,10 @@ namespace Compiler.Token
                     return new Token(TokenType.Marisa, line, column);
                 case "stb":
                     return new Token(TokenType.Stb, line, column);
+                case "true":
+                    return new Token(TokenType.True, line, column);
+                case "false":
+                    return new Token(TokenType.False, line, column);
                 default:
                     return new IdentifierToken(TokenType.Identifier, line, column, content);
             }
