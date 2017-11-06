@@ -14,7 +14,7 @@ namespace Compiler.Analyser
             State = state;
         }
 
-        public int Resolve(Stack<StackObject> actions, Stack<int> states)
+        public int Resolve(Stack<StackObject> actions, Stack<int> states, StackObject? obj = null)
         {
             states.Push(State);
 

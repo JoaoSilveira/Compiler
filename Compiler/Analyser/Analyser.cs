@@ -19,21 +19,21 @@ namespace Compiler.Analyser
                 var tkn = stream.Read();
                 var so = new StackObject((long)tkn.Type, true, tkn.Line, tkn.Column);
 
-                while (!stream.EndOfStream)
+                while (true)
                 {
                     int ans;
                     IAction transition;
 
-                    Console.WriteLine("===========================================");
-                    Console.WriteLine("{0,10}\t" + string.Join(", ", objects.Select(p => p.ToString())), "Pilha:");
-                    Console.WriteLine("{0,10}\t" + string.Join(", ", states.Select(p => p.ToString())), "Estados:");
-                    Console.WriteLine("{0,10}\t" + so, "Next:");
-                    Console.WriteLine("===========================================");
+                    //Console.WriteLine("===========================================");
+                    //Console.WriteLine("{0,10}\t" + string.Join(", ", objects.Select(p => p.ToString())), "Pilha:");
+                    //Console.WriteLine("{0,10}\t" + string.Join(", ", states.Select(p => p.ToString())), "Estados:");
+                    //Console.WriteLine("{0,10}\t" + so, "Next:");
+                    //Console.WriteLine("===========================================");
 
                     try
                     {
                         transition = States.StateArray[states.Peek()][so];
-                        ans = transition.Resolve(objects, states);
+                        ans = transition.Resolve(objects, states, so);
                     }
                     catch (IndexOutOfRangeException)
                     {
@@ -92,6 +92,8 @@ namespace Compiler.Analyser
 
                             so = new StackObject((long)type, true, tkn.Line, tkn.Column);
                             break;
+                        case 3:
+                            return;
                         default:
                             throw new Exception("Something went really bad");
                     }

@@ -18,7 +18,7 @@ namespace Compiler.Analyser
             ReduceStack = reduceStack;
         }
 
-        public int Resolve(Stack<StackObject> actions, Stack<int> states)
+        public int Resolve(Stack<StackObject> actions, Stack<int> states, StackObject? obj)
         {
             var aux = NonTerminal;
             foreach (var stackObject in ReduceStack.Reverse())

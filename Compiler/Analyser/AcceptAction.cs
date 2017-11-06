@@ -10,9 +10,10 @@ namespace Compiler.Analyser
     {
         public StackObject Data => throw new Exception("AcceptionAction has no data");
 
-        int IAction.Resolve(Stack<StackObject> actions, Stack<int> states)
+        int IAction.Resolve(Stack<StackObject> actions, Stack<int> states, StackObject? obj)
         {
-            return 0;
+            Console.WriteLine("Aceitou");
+            return 3;
         }
     }
 }

@@ -433,7 +433,7 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Text,  new StackAction(StackObject.Text, 48)}
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 48)}
             },
 
             #endregion
@@ -442,7 +442,8 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Text,  new StackAction(StackObject.Text, 49)}
+                {StackObject.Text,  new StackAction(StackObject.Text, 49)},
+                {StackObject.Identifier,  new StackAction(StackObject.Identifier, 122)}
             },
 
             #endregion
@@ -1278,17 +1279,17 @@ namespace Compiler.Analyser
 
             new Dictionary<StackObject, IAction>
             {
-                {StackObject.Nani,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Cirno,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Mokou,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Cheeen,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Marisa,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Stb,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Honk,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Pedal,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.VarType,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.Identifier,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
-                {StackObject.CloseBracket,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Text, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Nani,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.MarisaNT, StackObject.Marisa, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
             },
 
             #endregion
@@ -1631,6 +1632,43 @@ namespace Compiler.Analyser
             {
                 {StackObject.Semicolon,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis, StackObject.ExpressionAuxNT)},
                 {StackObject.CloseParenthesis,  new ReduceAction(StackObject.ExpressionNT, StackObject.OpenParenthesis, StackObject.ExpressionNT, StackObject.CloseParenthesis, StackObject.ExpressionAuxNT)},
+            },
+
+            #endregion
+
+            #region State 122
+
+            new Dictionary<StackObject, IAction>
+            {
+                {StackObject.CloseParenthesis,  new StackAction(StackObject.CloseParenthesis, 123)}
+            },
+
+            #endregion
+
+            #region State 123
+
+            new Dictionary<StackObject, IAction>
+            {
+                {StackObject.Semicolon,  new StackAction(StackObject.Semicolon, 124)}
+            },
+
+            #endregion
+
+            #region State 124
+
+            new Dictionary<StackObject, IAction>
+            {
+                {StackObject.Nani,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cirno,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Mokou,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Cheeen,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Marisa,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Stb,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Honk,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Pedal,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.VarType,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.Identifier,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
+                {StackObject.CloseBracket,  new ReduceAction(StackObject.StbNT, StackObject.Stb, StackObject.OpenParenthesis, StackObject.Identifier, StackObject.CloseParenthesis, StackObject.Semicolon)},
             },
 
             #endregion

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Compiler.Analyser
@@ -20,9 +21,12 @@ namespace Compiler.Analyser
             Transition = new TransitionAction(state);
         }
 
-        public int Resolve(Stack<StackObject> actions, Stack<int> states)
+        public int Resolve(Stack<StackObject> actions, Stack<int> states, StackObject? obj)
         {
-            actions.Push(Data);
+            if (obj.HasValue)
+                actions.Push(new StackObject(Data.Data, Data.IsTerminal, obj.Value.Line, obj.Value.Column));
+            else
+                throw new Exception("Obj not provided");
 
             Transition?.Resolve(actions, states);
 

@@ -92,6 +92,9 @@ namespace Compiler.Token
                             break;
                         }
 
+                        if (c == char.MaxValue)
+                            return new Token(TokenType.EndString, Line, Column);
+
                         if (!TokenUtil.IsSingleOperator(c))
                             throw new Exception($"Unknown character '{c}'. Line {Line}: Column {Column}");
 
